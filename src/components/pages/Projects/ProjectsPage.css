@@ -1,0 +1,58 @@
+@import "../../../_variables.css";
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+#projects img {
+  height: 170px;
+  width: 172px;
+  margin-bottom: 40px;
+  will-change: filter;
+  transition: filter 300ms;
+  transform-style: preserve-3d;  
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.hero:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+#projects h2{
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+#projects p{
+  text-align: center;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media (max-width: 768px) { 
+  #projects {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}

@@ -1,0 +1,29 @@
+:root {
+  --background-color: #040D12;
+  --text-color: #C4C2C7;
+  --primary-color: #93B1A6;
+  --secondary-color: #5C8374;
+  --resume-button-color: #183D3D;
+  --menu-background-color: #183D3D;
+  --input-background-color: #333131;
+  --input-placeholder-color: #5f5d5d;
+  --glow-color-1: #3282b8;
+  --glow-color-2: rgba(50, 130, 184, 0.8);
+  --glow-color-3: rgba(50, 130, 184, 0.5);
+  --glow-color-4: rgba(50, 130, 184, 0.2);
+}
+
+body[data-theme="light"] {
+  --background-color: #F5E8C7;
+  --text-color: #040D12;
+  --primary-color: #183D3D;
+  --secondary-color: #5C8374;
+  --resume-button-color: #93B1A6;
+  --menu-background-color: #93B1A6;
+  --input-background-color: #979393;
+  --input-placeholder-color: #5e5c5c;
+  --glow-color-1: #183D3D;
+  --glow-color-2: rgba(24, 124, 91, 0.8);
+  --glow-color-3: rgba(38, 209, 138, 0.5);
+  --glow-color-4: rgba(255, 215, 0, 0.2);  
+}

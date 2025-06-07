@@ -1,0 +1,101 @@
+@import "../../../_variables.css";
+
+#aboutme{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.first-row{
+    display: flex;
+    justify-content: center;    
+    width: 100%;
+}
+
+.profile-pic{
+    border-radius: 123px;
+    border: 6px solid var(--text-color);
+    height: 255px;
+    width: 255px;
+    text-align: center;
+}
+
+.content{
+    margin-left: 150px;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.second-row{
+    display: flex;
+    justify-content: center; 
+    margin-top: 50px;
+    position: relative;
+}
+
+.orange-square{
+    width: 764px;
+    height: 522px;
+    background-color: #F39F5A;
+    -moz-transform: rotate(171deg);
+    -webkit-transform: rotate(171deg);
+    -o-transform: rotate(171deg);
+    -ms-transform: rotate(171deg);
+    transform: rotate(171deg);    
+    position: absolute;
+    z-index: 1;
+}
+
+.purple-square{
+    width: 764px;
+    height: 522px;
+    background-color: #9E57DB;
+    -moz-transform: rotate(6deg);
+    -webkit-transform: rotate(6deg);
+    -o-transform: rotate(6deg);
+    -ms-transform: rotate(6deg);
+    transform: rotate(6deg);  
+    position: absolute;
+    z-index: 2;
+}
+
+.wedding-pic{
+    width: 764px;
+    height: 522px; 
+    position: absolute;
+    z-index: 3;
+}
+
+@media (max-width: 768px) { 
+    #aboutme{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .first-row{
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-pic{
+        border-radius: 123px;
+        border: 4px solid var(--text-color);
+        height: 155px;
+        width: 155px;
+        text-align: center;
+    }    
+    .content{
+        margin-left: 0px;
+        text-align: justify;
+        font-size: 14px;
+    }   
+    .orange-square{
+        width: 305px;
+        height: 208px;
+    }     
+    .purple-square{
+        width: 305px;
+        height: 208px;
+    }      
+    .wedding-pic{
+        width: 305px;
+        height: 208px;
+    }  
+}

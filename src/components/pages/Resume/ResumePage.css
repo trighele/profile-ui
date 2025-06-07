@@ -1,0 +1,242 @@
+@import '../../../_variables.css';
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px 0px rgba(0, 123, 255, 0.4); /* Start with a subtle glow */
+  }
+  50% {
+    box-shadow: 0 0 20px 8px rgba(0, 123, 255, 0.8); /* Max glow intensity and spread */
+  }
+  100% {
+    box-shadow: 0 0 5px 0px rgba(0, 123, 255, 0.4); /* Return to subtle glow */
+  }
+}
+
+#resume > menu {
+  margin: 3rem 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  padding-bottom: 30px;  
+  justify-content: center;  
+  flex-wrap: wrap;
+}
+
+#resume > menu button {
+  padding: 0.5rem 2rem;
+  background-color: transparent;
+  font-size: 20px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: 'JetBrains Mono';
+  border: 2px solid var(--resume-button-color);
+  height: 80px;
+}
+
+@media (max-width: 768px) { 
+  #resume > menu button {
+    font-size: 15px;
+    height: 60px;
+  }
+}
+
+#resume > menu button:hover {
+  font-weight: 700;
+}
+
+#resume > menu button.active {
+  background-color: var(--resume-button-color);
+}
+
+#resume > menu button.download {
+  background-color: #A67C52;
+}
+
+#tech-skills{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr [col-start]);
+    grid-template-rows: repeat(2, 1fr [col-start]);
+    grid-row-gap: 50px;
+    justify-items: center;
+}
+
+#tech-skills .image-container{
+    background-color: #4E4C4C;
+    width: 144px;
+    height: 124px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 0px var(--resume-button-color);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#tech-skills .image-container:hover {
+  background-color: var(--secondary-color);
+  animation: pulse-glow 1.5s infinite alternate ease-in-out;
+}
+
+#tech-skills .image-container > img {
+    width: 100px;
+    height: 100px;
+}
+
+#tech-skills p {
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) { 
+  #tech-skills {
+    grid-template-columns: repeat(2, 1fr [col-start]);
+    grid-template-rows: repeat(5, 1fr [col-start]);
+    grid-row-gap: 30px;
+  }
+  #tech-skills .image-container {
+    width: 124px;
+    height: 100px;
+  }
+  #tech-skills .image-container > img {
+    width: 75px;
+    height: 75px;
+  }
+  #tech-skills p {
+      font-size: 15px;
+  }  
+}
+
+#experience-tab{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr [col-start]);
+  grid-template-rows: 1fr [col-start];
+  grid-column-gap: 20px;
+  justify-items: center;  
+}
+
+#experience-tab .experience-item{
+  background-color: #4E4C4C;
+  height: 555px;
+  width: 395px;
+  border-radius: 15px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+  border: 2px solid #000000;
+}
+
+#experience-tab .active{
+  border: none;
+  box-shadow:
+    0 0 0 4px var(--glow-color-1),
+    0 0 20px 8px var(--glow-color-2), 
+    0 0 40px 15px var(--glow-color-3), 
+    0 0 60px 25px var(--glow-color-4);
+}
+
+#experience-tab .experience-header{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.experience-header > h2{
+  font-family: "JetBrains Mono";
+  font-size: 20px;
+  color: var(--secondary-color);
+  max-width: 195px;
+}
+
+.experience-header > p {
+  margin-top: 20px;
+  color: var(--secondary-color);
+  text-align: right;
+  font-size: 15px;
+}
+
+#experience-tab .experience-description{
+  color: var(--text-color);
+  max-width: 345px;
+}
+
+.experience-description ul{
+  display: flex;
+  flex-direction: column;
+  height: 390px;
+  justify-content: space-evenly;
+}
+
+.experience-description li{
+  line-height: 22px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) { 
+  #experience-tab{
+    grid-template-columns: 1fr [col-start];
+    grid-template-rows: repeat(3, 1fr [col-start]);
+    grid-row-gap: 50px;
+  }
+
+  #experience-tab .experience-item{
+    height: 416px;
+    width: 296px;
+  }
+
+  .experience-header > h2{
+    font-size: 16px;
+    max-width: 115px;
+  }
+
+  .experience-header > p {
+    font-size: 13px;
+  }
+
+  #experience-tab .experience-description{
+    max-width: 295px;
+  }
+
+  .experience-description ul{
+    height: 280px;
+  }
+
+  .experience-description li{
+    line-height: 18px;
+    font-size: 13px;
+  }
+
+}
+
+#awards-tab{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr [col-start]);
+  grid-template-rows: repeat(2, 1fr [col-start]);
+  justify-items: center;  
+}
+
+#awards-tab > div {
+  text-align: center;
+}
+
+#awards-tab img{
+  height: 164px;
+}
+
+#awards-tab p{
+  font-family: "JetBrains Mono";
+  font-size: 18px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+@media (max-width: 768px) { 
+  #awards-tab img{
+    height: 124px;
+  }
+  #awards-tab p{
+    font-size: 15px;
+  }
+
+}

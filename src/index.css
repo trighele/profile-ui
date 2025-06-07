@@ -1,0 +1,20 @@
+@import './_variables.css';
+
+:root {
+  font-family: "Inclusive Sans", sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  margin: 30px 60px;
+}
+
+main {
+  margin-top: 50px;
+}
+
+button:hover{
+  cursor: pointer;
+}
