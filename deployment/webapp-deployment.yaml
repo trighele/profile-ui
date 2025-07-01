@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: profile-ui-deployment
+  namespace: profile-ui
 spec:
   replicas: 1
   selector:
