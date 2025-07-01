@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profile-ui-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: profile-ui
+  template:
+    metadata:
+      labels:
+        app: profile-ui
+    spec:
+      containers:
+      - name: profile-ui-container
+        image: profile-ui:v1
+        envFrom:
+        - configMapRef:
+            name: profile-ui-config            
+        ports:
+        - containerPort: 80
+

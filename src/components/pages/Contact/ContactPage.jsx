@@ -11,7 +11,7 @@ export default function ContactPage() {
   const [showErrorText, setShowErrorText] = useState(false);
   const [showSuccessText, setShowSuccessText] = useState(false);
   const apiBaseUrl = import.meta.env.VITE_APP_API_BASE_URL;
-  const apiToEmailAddress = import.meta.env.VITE_APP_TO_EMAIl;
+  const apiToEmailAddress = import.meta.env.VITE_APP_TO_EMAIL;
 
   function handleChangeName(event) {
     if (showErrorText) {
