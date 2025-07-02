@@ -46,11 +46,8 @@ jobs:
         run: |
           kubectl create configmap profile-ui-config \
             --from-literal=VITE_APP_API_BASE_URL=${{ env.VITE_APP_API_BASE_URL }} \
-            --dry-run=client -o yaml | kubectl apply -n ${{ env.NAMESPACE }} -f -
-
-          kubectl create configmap profile-ui-config \
             --from-literal=VITE_APP_TO_EMAIL=${{ env.VITE_APP_TO_EMAIL }} \
-            --dry-run=client -o yaml | kubectl apply -n ${{ env.NAMESPACE }} -f -            
+            --dry-run=client -o yaml | kubectl apply -n ${{ env.NAMESPACE }} -f -         
 
       - name: Deploy to Kubernetes
         run: |
