@@ -26,6 +26,9 @@ jobs:
         run: kubectl apply -f deployment/
 
       - name: Build NPM package
+        env:
+          VITE_APP_API_BASE_URL: ${{ vars.VITE_APP_API_BASE_URL }}
+          VITE_APP_TO_EMAIL: ${{ vars.VITE_APP_TO_EMAIL }}
         run: |
           npm install
           npm run build        
