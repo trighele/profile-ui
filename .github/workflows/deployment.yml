@@ -42,16 +42,6 @@ jobs:
       - name: Load image into KIND cluster
         run: kind load docker-image ${{ env.IMAGE_TAG }} --name unraid-ubuntu-prod
 
-      - name: Create/Update K8s Secrets and ConfigMaps
-        env:
-          VITE_APP_API_BASE_URL: ${{ vars.VITE_APP_API_BASE_URL }}
-          VITE_APP_TO_EMAIL: ${{ vars.VITE_APP_TO_EMAIL }}
-        run: |
-          kubectl create configmap profile-ui-config \
-            --from-literal=VITE_APP_API_BASE_URL=${{ env.VITE_APP_API_BASE_URL }} \
-            --from-literal=VITE_APP_TO_EMAIL=${{ env.VITE_APP_TO_EMAIL }} \
-            --dry-run=client -o yaml | kubectl apply -n ${{ env.NAMESPACE }} -f -         
-
       - name: Deploy to Kubernetes
         run: |
           echo "Updating deployment with image: ${{ env.IMAGE_TAG }}"
