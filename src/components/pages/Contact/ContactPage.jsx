@@ -1,6 +1,7 @@
 import { useState } from "react";
 import imgLinkedIn from "../../../../src/assets/LinkedIn_icon.svg.png";
 import imgFacebook from "../../../../src/assets/facebook.png";
+import imgGitHub from "../../../../src/assets/Github-desktop-logo-symbol.svg.png";
 import imgLetter from "../../../../src/assets/letter.png";
 import "./ContactPage.css";
 
@@ -143,6 +144,9 @@ export default function ContactPage() {
         </a>
         <a href="https://www.facebook.com/tom.righele.2025" target="_blank">
           <img src={imgFacebook} className="facebook" />
+        </a>
+        <a href="https://github.com/trighele" target="_blank">
+          <img src={imgGitHub} className="github" />
         </a>
       </div>
     </section>
