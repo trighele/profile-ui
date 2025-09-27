@@ -1,4 +1,3 @@
-import imgHero from "../../../../src/assets/hero-image-BXUSgUWd.png";
 import './ProjectsPage.css';
 
 export default function ProjectsPage() {
