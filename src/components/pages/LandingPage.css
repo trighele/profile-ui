@@ -35,6 +35,37 @@
     border-radius: 15px;
 }
 
+.landing-main img {
+  height: 170px;
+  width: 172px;
+  margin-bottom: 40px;
+  will-change: filter;
+  transition: filter 300ms;
+  transform-style: preserve-3d;  
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.hero:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
 @media (max-width: 768px) { 
   .landing-main > h1 {
     font-size: 48px; 
