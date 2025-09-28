@@ -1,9 +1,13 @@
 import './ProjectsPage.css';
+import ProjectItem from "./ProjectItem.jsx";
+import projectData from "./ProjectData.jsx";
 
 export default function ProjectsPage() {
   return (
     <section id="projects">
-      {/* Need to replicate what was done on experience tab */}
+      {projectData.map((project) => {
+        return <ProjectItem key={project.id} project={project} /> 
+      })}
     </section>
   );
 }
