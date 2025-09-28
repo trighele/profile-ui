@@ -1,3 +1,5 @@
+import documentIcon from "../../../../src/assets/projects/document-icon.png";
+
 const projectData = [
     {
         id: "d769f2f8-4bc2-42b2-8de0-0f71914f3c77",
@@ -9,7 +11,7 @@ const projectData = [
         keywords: ["Infrastructure Management", "Containerization/Orchestration", "DevOps/CI-CD", "System Administration"],
         links: [
             {
-                icon: "document",
+                icon: {documentIcon},
                 linkTitle: "NAS Killer 6.0 Guide",
                 url: ""
             }
@@ -25,7 +27,7 @@ const projectData = [
         keywords: ["AI/Machine Learning Integration", "API Development & Orchestration", "Cloud Computing & Resource Management", "DevOps/CI-CD"],
         links: [
             {
-                icon: "document",
+                icon: {documentIcon},
                 linkTitle: "NAS Killer 6.0 Guide",
                 url: ""
             }
