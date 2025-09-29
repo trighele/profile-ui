@@ -5,34 +5,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 100px auto;  /* center horizontally */
-  padding: 0 20px;     /* responsive padding */
-  max-width: 1600px;   /* keeps it from stretching too wide */
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
-#projects .project-item {
+#projects .project-item{
   background-color: #4E4C4C;
   display: flex; 
   flex-direction: column;
-  height: auto;              /* let height adjust naturally */
-  width: 100%;               /* fill container */
-  max-width: 1550px;         /* prevent being too wide */
+  height: 450px;
+  width: 1550px;
   border-radius: 15px;
   -webkit-box-shadow: 5px 5px 15px 5px #000000; 
   box-shadow: 5px 5px 15px 5px #000000;
   border: 2px solid #000000;
   margin-bottom: 80px;
   flex-wrap: wrap;
-  overflow: hidden;          /* clip overflow if shrinking */
 }
 
-#projects .project-header {
+#projects .project-header{
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   height: 100px;
-  width: 100%;               /* responsive width */
+  width: 1550px;
   -webkit-border-radius: 15px 15px 0px 0px;
   border-radius: 15px 15px 0px 0px;
   border-bottom: 2px solid #000000;
@@ -42,15 +40,13 @@
 #projects .project-date {
   background-color: #7E7777;
   position: absolute;  
-  width: auto;               /* allow text to grow */
-  min-width: 90px;
-  padding: 5px 12px;
-  height: auto;
+  width: 110px;
+  height: 35px;
   border-radius: 25px;
   border: 2px solid #000000;
   top: 10px;  
   right: 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   font-family: "Noto Sans", sans-serif;
   display: flex;
@@ -59,7 +55,8 @@
 }
 
 #projects .project-details {
-  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .project-details h3 {
@@ -79,19 +76,23 @@
   border-radius: 25px;
   border: 2px solid #000000;  
   margin-right: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* optional: spacing between rows */
   padding: 8px 15px;
   background-color: #7E7777;
-  white-space: nowrap;
-  flex-shrink: 0;
+
+  white-space: nowrap; /* keep text on one line */
+  flex-shrink: 0;      /* prevent shrinking */  
 }
 
 .project-keywords .keyword:hover {
-  box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.7); /* outer glow */
 }
 
 .project-details hr {
-  margin: 25px 15px 15px 15px;
+  margin-top: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
   filter: blur(2px);
 }
 
@@ -122,53 +123,54 @@
   margin-right: 5px;
 }
 
-/* --- Media Queries for smaller screens --- */
 
-@media (max-width: 1200px) {
+
+/* #projects h2{
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+#projects p{
+  text-align: center;
+} */
+
+@media (max-width: 1280px) { 
   #projects {
-    margin-top: 60px;
-    padding: 0 15px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
-  #projects .project-header {
-    height: 80px;
+
+  #projects .project-item{
+    width: 1000px;
+    height: 550px;
   }
-  .project-details h3 {
-    font-size: 18px;
+
+  #projects .project-header{
+    width: 1000px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
   #projects {
-    margin-top: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
-  #projects .project-item {
-    margin-bottom: 50px;
-  }
-  .project-details h3 {
-    font-size: 16px;
-  }
-  #projects .project-date {
-    font-size: 12px;
-    padding: 4px 10px;
-  }
-}
 
-@media (max-width: 480px) {
-  #projects {
-    margin-top: 20px;
-    padding: 0 10px;
+  #projects .project-item{
+    width: 350px;
+    height: 1300px;
   }
-  #projects .project-header {
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
-    text-align: center;
-  }
+
+  #projects .project-header{
+    width: 350px;
+    align-items: center;
+  }  
+
+  #projects .project-header > h2{
+    font-size: 20px;
+  }  
+
   #projects .project-date {
-    position: static; /* drop out of absolute */
-    margin-top: 10px;
-  }
-  .project-details h3 {
-    font-size: 14px;
+    position: relative;
   }
 }

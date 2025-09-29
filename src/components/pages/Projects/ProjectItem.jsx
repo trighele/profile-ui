@@ -20,9 +20,14 @@ export default function ProjectItem({ project }) {
         </div>
         <hr />
         <div className="project-links">
-          <div>
-            {project.link}
-          </div>
+          {project.links.map((link, index) => (
+            <div className="project-link" key={index}>
+              <a href={link.url} target="_blank">
+                <img src={link.icon} className="project-links-icon" />
+                {link.linkTitle}
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </div>

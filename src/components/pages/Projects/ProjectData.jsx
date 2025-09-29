@@ -1,4 +1,6 @@
 import documentIcon from "../../../../src/assets/projects/document-icon.png";
+import githubIcon from "../../../../src/assets/projects/github-icon.svg";
+import youtubeIcon from "../../../../src/assets/projects/youtube-icon.png";
 
 const projectData = [
     {
@@ -11,10 +13,20 @@ const projectData = [
         keywords: ["Infrastructure Management", "Containerization/Orchestration", "DevOps/CI-CD", "System Administration"],
         links: [
             {
-                icon: {documentIcon},
+                icon: documentIcon,
                 linkTitle: "NAS Killer 6.0 Guide",
-                url: ""
-            }
+                url: "https://forums.serverbuilds.net/t/guide-nas-killer-6-0-ddr4-is-finally-cheap/13956"
+            },
+            {
+                icon: documentIcon,
+                linkTitle: "UnRaid Documentation",
+                url: "https://docs.unraid.net/?utm_source=google&utm_medium=cpc&utm_campaign=p-max-targeted-us-can&utm_content=&utm_term=&gad_source=1&gad_campaignid=21440886943&gbraid=0AAAAAC26wCLfL8EsdA6mqkn0YUrBLwSYk&gclid=Cj0KCQjw3OjGBhDYARIsADd-uX4nqygNJjdmab9blxwsv3QepmS3iXLS6azKyhnSxhW3bDNiChxFOIAaAtkIEALw_wcB"
+            },
+            {
+                icon: youtubeIcon,
+                linkTitle: "Self Hosting on Your Server",
+                url: "https://youtu.be/GarMdDTAZJo?si=flMJu-mcE9Ojke_w"
+            },            
         ]
     },
     {
@@ -27,10 +39,15 @@ const projectData = [
         keywords: ["AI/Machine Learning Integration", "API Development & Orchestration", "Cloud Computing & Resource Management", "DevOps/CI-CD"],
         links: [
             {
-                icon: {documentIcon},
-                linkTitle: "NAS Killer 6.0 Guide",
+                icon: githubIcon,
+                linkTitle: "GitHub Code",
+                url: "https://github.com/trighele/project_ai_ftsy_football_sum"
+            },
+            {
+                icon: youtubeIcon,
+                linkTitle: "Live Demo",
                 url: ""
-            }
+            }            
         ]
     }    
 
