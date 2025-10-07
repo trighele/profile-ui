@@ -5,25 +5,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 100px auto;  /* center horizontally */
-  padding: 0 20px;     /* responsive padding */
-  max-width: 1600px;   /* keeps it from stretching too wide */
+  margin: 100px auto; 
+  padding: 0 20px; 
+  max-width: 1600px; 
 }
 
 #projects .project-item {
-  background-color: #4E4C4C;
-  display: flex; 
+  background-color: #4e4c4c;
+  display: flex;
   flex-direction: column;
-  height: auto;              /* let height adjust naturally */
-  width: 100%;               /* fill container */
-  max-width: 1550px;         /* prevent being too wide */
+  height: auto;
+  width: 100%;
+  max-width: 1550px;
   border-radius: 15px;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
-  box-shadow: 5px 5px 15px 5px #000000;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
+            0 0 12px rgba(34, 139, 230, 0.3);
+
   border: 2px solid #000000;
   margin-bottom: 80px;
   flex-wrap: wrap;
-  overflow: hidden;          /* clip overflow if shrinking */
+  overflow: hidden;
 }
 
 #projects .project-header {
@@ -32,23 +34,23 @@
   align-items: center;
   position: relative;
   height: 100px;
-  width: 100%;               /* responsive width */
+  width: 100%;
   -webkit-border-radius: 15px 15px 0px 0px;
   border-radius: 15px 15px 0px 0px;
   border-bottom: 2px solid #000000;
-  font-family: 'JetBrains Mono';
+  font-family: "JetBrains Mono";
 }
 
 #projects .project-date {
-  background-color: #7E7777;
-  position: absolute;  
-  width: auto;               /* allow text to grow */
+  background-color: #7e7777;
+  position: absolute;
+  width: auto;
   min-width: 90px;
   padding: 5px 12px;
   height: auto;
   border-radius: 25px;
   border: 2px solid #000000;
-  top: 10px;  
+  top: 10px;
   right: 20px;
   font-size: 14px;
   font-weight: 700;
@@ -77,11 +79,11 @@
 
 .project-keywords .keyword {
   border-radius: 25px;
-  border: 2px solid #000000;  
+  border: 2px solid #000000;
   margin-right: 15px;
   margin-bottom: 10px;
   padding: 8px 15px;
-  background-color: #7E7777;
+  background-color: #7e7777;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -97,22 +99,22 @@
 
 .project-details .project-links {
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 }
 
 .project-details .project-link a:link {
   text-decoration: none;
-  color: #228BE6;
-  display: flex;         
-  align-items: center;   
+  color: #228be6;
+  display: flex;
+  align-items: center;
   margin-right: 20px;
   margin-bottom: 10px;
   white-space: nowrap;
-  flex-shrink: 0;   
+  flex-shrink: 0;
 }
 
 .project-details .project-link a:visited {
-  color: #228BE6;
+  color: #228be6;
 }
 
 .project-details .project-links-icon {
@@ -120,6 +122,22 @@
   height: 25px;
   display: inline-block;
   margin-right: 5px;
+}
+
+/* Prevent horizontal overflow on smallest screens */
+#projects,
+#projects .project-item,
+#projects .project-details {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Let text wrap naturally instead of forcing nowrap everywhere */
+.project-keywords .keyword,
+.project-details .project-link a {
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* --- Media Queries for smaller screens --- */
@@ -151,6 +169,12 @@
     font-size: 12px;
     padding: 4px 10px;
   }
+  .project-keywords .keyword {
+    font-size: 13px;
+    padding: 6px 12px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -161,14 +185,33 @@
   #projects .project-header {
     flex-direction: column;
     height: auto;
-    padding: 10px;
+    padding: 0 0 10px;
     text-align: center;
   }
   #projects .project-date {
     position: static; /* drop out of absolute */
     margin-top: 10px;
   }
+  .project-details {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .project-details h3 {
     font-size: 14px;
+  }
+  .project-details p {
+    font-size: 14px;
+  }
+  .project-keywords .keyword {
+    font-size: 11px;
+    padding: 4px 8px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .project-details .project-keywords {
+    justify-content: center; /* optional: center align keywords on small screens */
+  }
+  .project-links {
+    font-size: 12px;
   }
 }

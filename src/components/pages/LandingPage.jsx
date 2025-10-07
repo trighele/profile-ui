@@ -8,6 +8,7 @@ export default function LandingPage() {
       <h1>Tom Righele</h1>
       <p>Senior Application Full Stack Developer</p>
       <p>Cloud Data Engineer</p>
+      <p>Azure Certification</p>
       <p>DevOps Experience</p>
       <br />
       <br />
