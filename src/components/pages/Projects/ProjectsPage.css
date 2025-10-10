@@ -5,54 +5,213 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin: 100px auto; 
+  padding: 0 20px; 
+  max-width: 1600px; 
 }
 
-#projects img {
-  height: 170px;
-  width: 172px;
-  margin-bottom: 40px;
-  will-change: filter;
-  transition: filter 300ms;
-  transform-style: preserve-3d;  
+#projects .project-item {
+  background-color: #4e4c4c;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  max-width: 1550px;
+  border-radius: 15px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
+            0 0 12px rgba(34, 139, 230, 0.3);
+
+  border: 2px solid #000000;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.hero:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#projects .project-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  width: 100%;
+  -webkit-border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 15px 0px 0px;
+  border-bottom: 2px solid #000000;
+  font-family: "JetBrains Mono";
 }
 
-#projects h2{
-  color: var(--primary-color);
+#projects .project-date {
+  background-color: #7e7777;
+  position: absolute;
+  width: auto;
+  min-width: 90px;
+  padding: 5px 12px;
+  height: auto;
+  border-radius: 25px;
+  border: 2px solid #000000;
+  top: 10px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Noto Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#projects .project-details {
+  padding: 20px;
+}
+
+.project-details h3 {
   font-size: 20px;
 }
 
-#projects p{
-  text-align: center;
+.project-details p {
+  padding-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
+.project-details .project-keywords {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.project-keywords .keyword {
+  border-radius: 25px;
+  border: 2px solid #000000;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  padding: 8px 15px;
+  background-color: #7e7777;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-@media (max-width: 768px) { 
+.project-keywords .keyword:hover {
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
+}
+
+.project-details hr {
+  margin: 25px 15px 15px 15px;
+  filter: blur(2px);
+}
+
+.project-details .project-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-details .project-link a:link {
+  text-decoration: none;
+  color: #228be6;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.project-details .project-link a:visited {
+  color: #228be6;
+}
+
+.project-details .project-links-icon {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Prevent horizontal overflow on smallest screens */
+#projects,
+#projects .project-item,
+#projects .project-details {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Let text wrap naturally instead of forcing nowrap everywhere */
+.project-keywords .keyword,
+.project-details .project-link a {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* --- Media Queries for smaller screens --- */
+
+@media (max-width: 1200px) {
   #projects {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-top: 60px;
+    padding: 0 15px;
+  }
+  #projects .project-header {
+    height: 80px;
+  }
+  .project-details h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  #projects {
+    margin-top: 40px;
+  }
+  #projects .project-item {
+    margin-bottom: 50px;
+  }
+  .project-details h3 {
+    font-size: 16px;
+  }
+  #projects .project-date {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  .project-keywords .keyword {
+    font-size: 13px;
+    padding: 6px 12px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  #projects {
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+  #projects .project-header {
+    flex-direction: column;
+    height: auto;
+    padding: 0 0 10px;
+    text-align: center;
+  }
+  #projects .project-date {
+    position: static; /* drop out of absolute */
+    margin-top: 10px;
+  }
+  .project-details {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .project-details h3 {
+    font-size: 14px;
+  }
+  .project-details p {
+    font-size: 14px;
+  }
+  .project-keywords .keyword {
+    font-size: 11px;
+    padding: 4px 8px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .project-details .project-keywords {
+    justify-content: center; /* optional: center align keywords on small screens */
+  }
+  .project-links {
+    font-size: 12px;
   }
 }

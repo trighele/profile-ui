@@ -1,8 +1,34 @@
+import React, { useState, useEffect } from "react";
 import imgProfilePic from "../../../../src/assets/aboutme/prof.jpg";
-import imgWeddingPic from "../../../../src/assets/aboutme/aboutme-2.jpg";
+import imgPic1 from "../../../../src/assets/aboutme/aboutme-1.jpg";
+import imgPic2 from "../../../../src/assets/aboutme/aboutme-2.jpg";
+import imgPic3 from "../../../../src/assets/aboutme/aboutme-3.jpg";
+import imgPic4 from "../../../../src/assets/aboutme/aboutme-4.jpg";
+import imgPic5 from "../../../../src/assets/aboutme/aboutme-5.jpg";
 import "./AboutMePage.css";
 
 export default function AboutMePage() {
+  const images = [imgPic1, imgPic2, imgPic3, imgPic4, imgPic5];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => 
+      (prevIndex - 1 + images.length) % images.length
+    );
+  };
+
   return (
     <section id="aboutme">
       <div className="first-row">
@@ -16,7 +42,11 @@ export default function AboutMePage() {
       <div className="second-row">
         <div className="orange-square"></div>
         <div className="purple-square"></div>
-        <img className="wedding-pic" src={imgWeddingPic} />
+        <div className="image-gallery">
+          <img className="main-pic" src={images[currentIndex]} />
+          <button className="prev-button" onClick={handlePrev}> ‹ </button>
+          <button className="next-button" onClick={handleNext}> › </button>
+        </div>
       </div>
     </section>
   );

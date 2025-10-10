@@ -58,11 +58,49 @@
     z-index: 2;
 }
 
-.wedding-pic{
+/* .wedding-pic{
     width: 764px;
     height: 522px; 
     position: absolute;
     z-index: 3;
+} */
+.second-row .image-gallery{
+  position: relative;
+  z-index: 3;
+}
+
+.image-gallery .main-pic{
+  width: 764px;
+  height: 522px;
+  border-radius: 10px;
+}
+
+.image-gallery .prev-button{
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: "none";
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: "pointer";
+}
+
+.image-gallery .next-button{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: "none";
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: "pointer";
 }
 
 @media (max-width: 768px) { 
@@ -94,7 +132,7 @@
         width: 305px;
         height: 208px;
     }      
-    .wedding-pic{
+    .image-gallery  .main-pic{
         width: 305px;
         height: 208px;
     }  
