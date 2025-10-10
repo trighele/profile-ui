@@ -46,7 +46,7 @@ const projectData = [
             {
                 icon: youtubeIcon,
                 linkTitle: "Live Demo",
-                url: ""
+                url: "https://youtube.com/shorts/79V_5nYnmAw?feature=share"
             }            
         ]
     }    
