@@ -4,15 +4,16 @@ export default function TabButton({ id, activeTab, children, onClick }) {
 
   return (
     <li>
-      {id != 3 ?
+      {id !== 3 ?
       <button
+        type="button"
         className={id === activeTab ? "active" : undefined}
         onClick={() => onClick(id)}
       >
         {children}
       </button> :
-      <a href={resumePath} download="Resume-TomRighele.pdf">
-        <button className="download">{children}</button>
+      <a href={resumePath} download="Resume-TomRighele.pdf" rel="noopener noreferrer">
+        <button type="button" className="download">{children}</button>
       </a>}
     </li>
   );

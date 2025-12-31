@@ -13,8 +13,11 @@ export default function ResumePage() {
   }
 
   return (
-    <section id="resume">
-      <menu>
+    <main id="resume">
+      <header>
+        <h1>Resume</h1>
+      </header>
+      <nav role="tablist" aria-label="Resume sections">
         <TabButton id={0} activeTab={activeTab} onClick={handleClick}>
           Tech <br />
           Skills
@@ -24,15 +27,15 @@ export default function ResumePage() {
         </TabButton>
         <TabButton id={2} activeTab={activeTab} onClick={handleClick}>
           Awards & <br />
-          Certification
+          Certs
         </TabButton>
         <TabButton id={3} activeTab={activeTab} onClick={handleClick}>
           Download
         </TabButton>
-      </menu>
+      </nav>
       {activeTab === 0 && <TechSkills />}
       {activeTab === 1 && <ExperienceTab />}
       {activeTab === 2 && <AwardsTab />}
-    </section>
+    </main>
   );
 }

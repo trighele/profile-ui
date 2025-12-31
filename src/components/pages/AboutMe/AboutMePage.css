@@ -1,61 +1,139 @@
 @import "../../../_variables.css";
 
 #aboutme{
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 60px auto;
+    padding: 0 100px;
+    max-width: 1400px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#aboutme article {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    width: 100%;
+    margin-bottom: 80px;
 }
 
 .first-row{
     display: flex;
-    justify-content: center;    
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
     width: 100%;
 }
 
 .profile-pic{
-    border-radius: 123px;
-    border: 6px solid var(--text-color);
-    height: 255px;
-    width: 255px;
-    text-align: center;
+    border-radius: 20px;
+    border: 4px solid var(--secondary-color);
+    height: 280px;
+    width: 280px;
+    object-fit: cover;
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 4px var(--resume-button-color),
+        0 0 30px rgba(92, 131, 116, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.profile-pic:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 4px var(--secondary-color),
+        0 0 40px rgba(92, 131, 116, 0.4);
 }
 
 .content{
-    margin-left: 150px;
-    text-align: justify;
-    font-size: 18px;
+    flex: 1;
+    max-width: 700px;
+    text-align: left;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin: 0 0 30px 0;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary-color), transparent);
+    border-radius: 2px;
+}
+
+.content p {
+    margin: 0 0 25px 0;
+    text-align: left;
+}
+
+.content p:last-child {
+    margin-bottom: 0;
 }
 
 .second-row{
     display: flex;
     justify-content: center; 
-    margin-top: 50px;
+    margin-top: 80px;
     position: relative;
+    padding: 40px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .orange-square{
     width: 764px;
     height: 522px;
-    background-color: #F39F5A;
-    -moz-transform: rotate(171deg);
-    -webkit-transform: rotate(171deg);
-    -o-transform: rotate(171deg);
-    -ms-transform: rotate(171deg);
-    transform: rotate(171deg);    
+    max-width: 100vw;
+    background: linear-gradient(135deg, 
+        var(--resume-button-color) 0%,
+        rgba(24, 61, 61, 0.6) 100%
+    );
+    transform: rotate(171deg);
     position: absolute;
     z-index: 1;
+    border-radius: 20px;
+    opacity: 0.4;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .purple-square{
     width: 764px;
     height: 522px;
-    background-color: #9E57DB;
-    -moz-transform: rotate(6deg);
-    -webkit-transform: rotate(6deg);
-    -o-transform: rotate(6deg);
-    -ms-transform: rotate(6deg);
-    transform: rotate(6deg);  
+    max-width: 100vw;
+    background: linear-gradient(135deg, 
+        var(--secondary-color) 0%,
+        rgba(92, 131, 116, 0.6) 100%
+    );
+    transform: rotate(6deg);
     position: absolute;
     z-index: 2;
+    border-radius: 20px;
+    opacity: 0.5;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* .wedding-pic{
@@ -67,73 +145,297 @@
 .second-row .image-gallery{
   position: relative;
   z-index: 3;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 0 0 2px var(--resume-button-color),
+    0 0 40px rgba(92, 131, 116, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.second-row .image-gallery:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 56px rgba(0, 0, 0, 0.5),
+    0 0 0 2px var(--secondary-color),
+    0 0 50px rgba(92, 131, 116, 0.4);
 }
 
 .image-gallery .main-pic{
   width: 764px;
   height: 522px;
-  border-radius: 10px;
+  max-width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease-in-out;
+}
+
+.image-gallery:hover .main-pic {
+  transform: scale(1.02);
 }
 
 .image-gallery .prev-button{
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 15px;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: "none";
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: "pointer";
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.image-gallery .prev-button:hover {
+  background: linear-gradient(135deg, 
+    var(--secondary-color) 0%,
+    var(--resume-button-color) 100%
+  );
+  border-color: var(--white);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 
+    0 6px 16px rgba(92, 131, 116, 0.4),
+    0 0 20px rgba(92, 131, 116, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.image-gallery .prev-button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+  background: rgba(0,0,0,0.8);
 }
 
 .image-gallery .next-button{
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 15px;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: "none";
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: "pointer";
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.image-gallery .next-button:hover {
+  background: linear-gradient(135deg, 
+    var(--secondary-color) 0%,
+    var(--resume-button-color) 100%
+  );
+  border-color: var(--white);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 
+    0 6px 16px rgba(92, 131, 116, 0.4),
+    0 0 20px rgba(92, 131, 116, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.image-gallery .next-button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+  background: rgba(0,0,0,0.8);
+}
+
+@media (max-width: 1200px) {
+    #aboutme {
+        padding: 0 60px;
+    }
+    
+    #aboutme article {
+        gap: 40px;
+    }
+    
+    .first-row {
+        gap: 40px;
+    }
+    
+    .profile-pic {
+        height: 240px;
+        width: 240px;
+    }
+    
+    .content {
+        font-size: 16px;
+    }
+    
+    .content h2 {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 768px) { 
     #aboutme{
-        margin-left: 25px;
-        margin-right: 25px;
+        margin: 40px auto;
+        padding: 0 25px;
     }
+    
+    #aboutme article {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+    
     .first-row{
         flex-direction: column;
         align-items: center;
+        gap: 40px;
     }
+    
     .profile-pic{
-        border-radius: 123px;
-        border: 4px solid var(--text-color);
-        height: 155px;
-        width: 155px;
-        text-align: center;
-    }    
+        border-radius: 20px;
+        border: 3px solid var(--secondary-color);
+        height: 220px;
+        width: 220px;
+    }
+    
     .content{
-        margin-left: 0px;
-        text-align: justify;
-        font-size: 14px;
-    }   
+        max-width: 100%;
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    
+    .content h2 {
+        font-size: 1.75rem;
+        text-align: center;
+    }
+    
+    .content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .second-row {
+        margin-top: 40px;
+        padding: 20px 0;
+    }
+    
     .orange-square{
         width: 305px;
         height: 208px;
     }     
+    
     .purple-square{
         width: 305px;
         height: 208px;
     }      
-    .image-gallery  .main-pic{
+    
+    .image-gallery .main-pic{
         width: 305px;
         height: 208px;
-    }  
+    }
+    
+    .image-gallery .prev-button,
+    .image-gallery .next-button {
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+    }
+    
+    .image-gallery .prev-button {
+        left: 10px;
+        right: auto;
+    }
+    
+    .image-gallery .next-button {
+        right: 10px;
+        left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #aboutme {
+        padding: 0 15px;
+    }
+    
+    .profile-pic {
+        height: 180px;
+        width: 180px;
+    }
+    
+    .content {
+        font-size: 14px;
+    }
+    
+    .content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .orange-square,
+    .purple-square {
+        width: 280px;
+        height: 190px;
+    }
+    
+    .image-gallery .main-pic {
+        width: 280px;
+        height: 190px;
+    }
+    
+    .image-gallery .prev-button,
+    .image-gallery .next-button {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+    
+    .image-gallery .prev-button {
+        left: 8px;
+        right: auto;
+    }
+    
+    .image-gallery .next-button {
+        right: 8px;
+        left: auto;
+    }
+    
+    #aboutme article {
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    
+    .first-row {
+        gap: 30px;
+    }
+    
+    .second-row {
+        margin-top: 30px;
+        padding: 15px 0;
+    }
 }

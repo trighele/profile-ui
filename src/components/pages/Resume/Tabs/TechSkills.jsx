@@ -14,61 +14,61 @@ export default function TechSkills() {
     <section id="tech-skills">
       <div>
         <div className="image-container">
-          <img src={imgDataEngineer} />
+          <img src={imgDataEngineer} alt="Data Engineer icon" loading="lazy" />
         </div>
         <p>Data Engineer</p>      
       </div>
       <div>
         <div className="image-container">
-          <img src={imgDatabricks} />
+          <img src={imgDatabricks} alt="Databricks logo" loading="lazy" />
         </div>
         <p>Databricks</p>      
       </div> 
       <div>
         <div className="image-container">
-          <img src={imgAzure} />
+          <img src={imgAzure} alt="Microsoft Azure logo" loading="lazy" />
         </div>
         <p>Azure <br />Ecosystem</p>      
       </div> 
       <div>
         <div className="image-container">
-          <img src={imgDevops} />
+          <img src={imgDevops} alt="DevOps icon" loading="lazy" />
         </div>
         <p>Devops</p>      
       </div>       
       <div>
         <div className="image-container">
-          <img src={imgPython} />
+          <img src={imgPython} alt="Python programming language logo" loading="lazy" />
         </div>
         <p>Python</p>      
       </div>      
       <div>
         <div className="image-container">
-          <img src={imgMSQL} />
+          <img src={imgMSQL} alt="Microsoft SQL Server logo" loading="lazy" />
         </div>
         <p>MSSQL</p>      
       </div>
       <div>
         <div className="image-container">
-          <img src={imgPG} />
+          <img src={imgPG} alt="PostgreSQL database logo" loading="lazy" />
         </div>
         <p>POSTGRESQL</p>      
       </div> 
       <div>
         <div className="image-container">
-          <img src={imgReact} />
+          <img src={imgReact} alt="React JavaScript framework logo" loading="lazy" />
         </div>
         <p>React</p>      
       </div> 
       <div>
         <div className="image-container">
-          <img src={imgInfra} />
+          <img src={imgInfra} alt="Infrastructure as Code icon" loading="lazy" />
         </div>
         <p>Infrastructure <br/> as Code</p>      
       </div>       
       <div>
         <div className="image-container">
-          <img src={imgKube} />
+          <img src={imgKube} alt="Kubernetes container orchestration logo" loading="lazy" />
         </div>
         <p>Kubernetes</p>      
       </div>                

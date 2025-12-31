@@ -5,26 +5,47 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 80vh;
+    min-height: 80vh;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-.landing-main > h1 {
+.landing-main header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-main > header > h1 {
   color: var(--secondary-color);
   font-family: 'Hubballi';
   font-weight: 300;
   font-size: 96px;
   text-transform: uppercase;
   margin: 0;
+  line-height: 1.1;
+  word-wrap: break-word;
 }
 
-.landing-main > p {
+.landing-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-main > header > .landing-titles > p,
+.landing-main .landing-titles p {
     margin: 0;
     padding-top: 10px;
     font-size: 20px;
+}
+
+.landing-main figure {
+  margin: 40px 0 0 0;
 }
 
 .landing-main > a > button {
@@ -38,10 +59,12 @@
 .landing-main img {
   height: 170px;
   width: 172px;
+  max-width: 100%;
   margin-bottom: 40px;
   will-change: filter;
   transition: filter 300ms;
-  transform-style: preserve-3d;  
+  transform-style: preserve-3d;
+  object-fit: contain;
 }
 
 .logo:hover {
@@ -67,12 +90,55 @@
 }
 
 @media (max-width: 768px) { 
-  .landing-main > h1 {
+  .landing-main {
+    min-height: 70vh;
+    padding: 15px;
+  }
+  
+  .landing-main > header > h1 {
     font-size: 48px; 
   }
 
-.landing-main > p {
-    font-size: 15px;
+  .landing-main > header > .landing-titles > p,
+  .landing-main .landing-titles p {
+    font-size: 16px;
+    padding-top: 8px;
+  }
+  
+  .landing-main figure {
+    margin: 30px 0 0 0;
+  }
+  
+  .landing-main img {
+    height: 140px;
+    width: 142px;
+    margin-bottom: 30px;
+  }
 }
 
+@media (max-width: 480px) {
+  .landing-main {
+    min-height: 60vh;
+    padding: 10px;
+  }
+  
+  .landing-main > header > h1 {
+    font-size: 36px;
+  }
+  
+  .landing-main > header > .landing-titles > p,
+  .landing-main .landing-titles p {
+    font-size: 14px;
+    padding-top: 6px;
+  }
+  
+  .landing-main figure {
+    margin: 20px 0 0 0;
+  }
+  
+  .landing-main img {
+    height: 120px;
+    width: 122px;
+    margin-bottom: 20px;
+  }
 }

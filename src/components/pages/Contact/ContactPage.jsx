@@ -11,6 +11,8 @@ export default function ContactPage() {
   const [inputMessage, setInputMessage] = useState("");
   const [showErrorText, setShowErrorText] = useState(false);
   const [showSuccessText, setShowSuccessText] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const apiBaseUrl = import.meta.env.VITE_APP_API_BASE_URL;
   const apiToEmailAddress = import.meta.env.VITE_APP_TO_EMAIL;
 
@@ -44,111 +46,151 @@ export default function ContactPage() {
     setInputMessage(event.target.value);
   }
 
-  const errorTextStyle = {
-    display: "none",
-  };
+  // Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  async function handleSendEmail() {
-    if (isValidName && isValidEmail && isValidMessage) {
-      try {
-        const response = await fetch(`${apiBaseUrl}/send-email`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            to: apiToEmailAddress,
-            subject: "TomRighele.com Contact",
-            html_content: `<body> <p>Name: ${inputName}</p> <p>Email: ${inputEmail}</p> <p>Message: ${inputMessage}</p> </body>`, // Use html_content as per your JSON
-          }),
-        });
-        setShowSuccessText(true);
-      } catch (error){
-        console.error('Error sending email:', error);
-      }
-    } else {
+  const isValidName = inputName.trim().length > 0;
+  const isValidEmail = inputEmail.trim().length > 0 && emailRegex.test(inputEmail);
+  const isValidMessage = inputMessage.trim().length > 0;
+
+  async function handleSendEmail(e) {
+    e?.preventDefault();
+    
+    if (!isValidName || !isValidEmail || !isValidMessage) {
       setShowErrorText(true);
+      setErrorMessage("Please fill in all fields correctly before sending.");
+      return;
+    }
+
+    setIsLoading(true);
+    setShowErrorText(false);
+    setShowSuccessText(false);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(`${apiBaseUrl}/send-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: apiToEmailAddress,
+          subject: "TomRighele.com Contact",
+          html_content: `<body> <p>Name: ${inputName}</p> <p>Email: ${inputEmail}</p> <p>Message: ${inputMessage}</p> </body>`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+
+      // Reset form on success
+      setInputName("");
+      setEmail("");
+      setInputMessage("");
+      setShowSuccessText(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setShowErrorText(true);
+      setErrorMessage("Failed to send message. Please try again later or contact me directly.");
+    } finally {
+      setIsLoading(false);
     }
   }
 
-  const isValidName = inputName.length > 0;
-
-  let isValidEmail;
-  if (inputEmail.length > 0 && inputEmail.includes("@")) {
-    isValidEmail = true;
-  } else {
-    isValidEmail = false;
-  }
-
-  const isValidMessage = inputMessage.length > 0;
-
   return (
-    <section id="contact-page">
-      <div className="form-container">
-        <h2>Contact Me</h2>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Name"
-          value={inputName}
-          onChange={handleChangeName}
-          className={isValidName ? "valid" : undefined}
-          required
-        />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          value={inputEmail}
-          onChange={handleChangeEmail}
-          className={
-            inputEmail.length > 0
-              ? isValidEmail
-                ? "valid"
-                : "invalid"
-              : undefined
-          }
-          required
-        />
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Message"
-          rows="10"
-          cols="33"
-          maxLength="500"
-          value={inputMessage}
-          onChange={handleChangeMessage}
-          className={isValidMessage ? "valid" : undefined}
-          required
-        />
-        <button onClick={handleSendEmail}>
-          <img src={imgLetter} />
-          Send
-        </button>
+    <main id="contact-page">
+      <section className="form-container" aria-labelledby="contact-heading">
+        <h1 id="contact-heading">Contact Me</h1>
+        <form onSubmit={handleSendEmail} noValidate>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            value={inputName}
+            onChange={handleChangeName}
+            className={inputName.length > 0 ? (isValidName ? "valid" : "invalid") : undefined}
+            required
+            aria-required="true"
+            aria-invalid={!isValidName && inputName.length > 0}
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            value={inputEmail}
+            onChange={handleChangeEmail}
+            className={
+              inputEmail.length > 0
+                ? isValidEmail
+                  ? "valid"
+                  : "invalid"
+                : undefined
+            }
+            required
+            aria-required="true"
+            aria-invalid={!isValidEmail && inputEmail.length > 0}
+          />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message (max 500 characters)"
+            rows="10"
+            cols="33"
+            maxLength="500"
+            value={inputMessage}
+            onChange={handleChangeMessage}
+            className={inputMessage.length > 0 ? (isValidMessage ? "valid" : "invalid") : undefined}
+            required
+            aria-required="true"
+            aria-invalid={!isValidMessage && inputMessage.length > 0}
+          />
+          <div className="character-count">
+            {inputMessage.length}/500 characters
+          </div>
+          <button type="submit" disabled={isLoading}>
+            <img src={imgLetter} alt="Send email icon" />
+            {isLoading ? "Sending..." : "Send"}
+          </button>
+        </form>
         {showErrorText && (
-          <p className="error-text">
-            Please make sure all fields are correct <br />
-            before sending.
+          <p className="error-text" role="alert">
+            {errorMessage || "Please make sure all fields are correct before sending."}
           </p>
         )}
         {showSuccessText && (
-          <p className="success-text">Successfully Sent! Thank you!</p>
+          <p className="success-text" role="alert">Successfully Sent! Thank you!</p>
         )}
-      </div>
-      <div className="social-media-container">
-        <a href="https://www.linkedin.com/in/thomas-righele" target="_blank">
-          <img src={imgLinkedIn} className="linkedin" />
+      </section>
+      <aside className="social-media-container" aria-label="Social media links">
+        <a 
+          href="https://www.linkedin.com/in/thomas-righele" 
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Tom Righele's LinkedIn profile"
+        >
+          <img src={imgLinkedIn} className="linkedin" alt="LinkedIn icon" />
         </a>
-        <a href="https://www.facebook.com/tom.righele.2025" target="_blank">
-          <img src={imgFacebook} className="facebook" />
+        <a 
+          href="https://www.facebook.com/tom.righele.2025" 
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Tom Righele's Facebook profile"
+        >
+          <img src={imgFacebook} className="facebook" alt="Facebook icon" />
         </a>
-        <a href="https://github.com/trighele" target="_blank">
-          <img src={imgGitHub} className="github" />
+        <a 
+          href="https://github.com/trighele" 
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Tom Righele's GitHub profile"
+        >
+          <img src={imgGitHub} className="github" alt="GitHub icon" />
         </a>
-      </div>
-    </section>
+      </aside>
+    </main>
   );
 }
+

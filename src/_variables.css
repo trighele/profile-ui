@@ -11,6 +11,18 @@
   --glow-color-2: rgba(50, 130, 184, 0.8);
   --glow-color-3: rgba(50, 130, 184, 0.5);
   --glow-color-4: rgba(50, 130, 184, 0.2);
+  
+  /* Additional color variables */
+  --card-background: #4E4C4C;
+  --card-border: #000000;
+  --accent-color: #228be6;
+  --success-color: #45cc4c;
+  --error-color: #cc4545;
+  --download-button-color: #A67C52;
+  --download-button-color-alt: #8B6F47;
+  --date-badge-color: #7e7777;
+  --white: #fff;
+  --black: #000000;
 }
 
 body[data-theme="light"] {
@@ -25,5 +37,12 @@ body[data-theme="light"] {
   --glow-color-1: #183D3D;
   --glow-color-2: rgba(24, 124, 91, 0.8);
   --glow-color-3: rgba(38, 209, 138, 0.5);
-  --glow-color-4: rgba(255, 215, 0, 0.2);  
+  --glow-color-4: rgba(255, 215, 0, 0.2);
+  
+  /* Light theme overrides */
+  --card-background: #E8E6E3;
+  --card-border: #5C5C5C;
+  --download-button-color-alt: #9B7F57;
+  --white: #fff;
+  --black: #000000;
 }
