@@ -8,11 +8,38 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-  margin: 30px 60px;
+  margin: 20px 15px;
+  overflow-x: hidden;
 }
 
 main {
-  margin-top: 50px;
+  margin-top: 30px;
+}
+
+@media (min-width: 480px) {
+  body {
+    margin: 25px 20px;
+  }
+  
+  main {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 30px 40px;
+  }
+  
+  main {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    margin: 30px 60px;
+  }
 }
 
 button:hover{

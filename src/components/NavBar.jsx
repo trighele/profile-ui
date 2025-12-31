@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 
-import bulbLight from "../assets/bulb-dark.png";
-import bulbDark from "../assets/bulb-light.png";
+import bulbLight from "../assets/bulb-light.png";
+import bulbDark from "../assets/bulb-dark.png";
 
 export default function NavBar({ theme, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState("Home");
+  const location = useLocation();
+  
+  // Map routes to page names for active state
+  const getPageFromPath = (pathname) => {
+    if (pathname === "/") return "Home";
+    if (pathname === "/resume") return "Resume";
+    if (pathname === "/projects") return "Projects";
+    if (pathname === "/aboutme") return "AboutMe";
+    if (pathname === "/contact") return "Contact";
+    return "Home";
+  };
+  
+  const currentPage = getPageFromPath(location.pathname);
 
   // Function to toggle the side menu
   const toggleMenu = () => {
@@ -25,17 +37,21 @@ export default function NavBar({ theme, toggleTheme }) {
     return () => window.removeEventListener("resize", handleResize);
   }, [isMenuOpen]);
 
-  function handleLink(page) {
-    setCurrentPage(page);
-  }
-
   return (
     <>
       {/* Main Navbar */}
       <nav className="navbar">
         <div>
-          <button className="light-toggle" onClick={toggleTheme}>
-            <img src={theme === "dark" ? bulbDark : bulbLight} />
+          <button 
+            type="button"
+            className="light-toggle" 
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            <img 
+              src={theme === "dark" ? bulbDark : bulbLight} 
+              alt={theme === "dark" ? "Light mode icon" : "Dark mode icon"}
+            />
           </button>
         </div>
 
@@ -43,35 +59,30 @@ export default function NavBar({ theme, toggleTheme }) {
         <div className="desktop-nav-links">
           <Link
             to="/"
-            onClick={() => handleLink("Home")}
             className={currentPage === "Home" ? "active" : undefined}
           >
             <p>Home</p>
           </Link>
           <Link
             to="/resume"
-            onClick={() => handleLink("Resume")}
             className={currentPage === "Resume" ? "active" : undefined}
           >
             <p>Resume</p>
           </Link>
           <Link
             to="/projects"
-            onClick={() => handleLink("Projects")}
             className={currentPage === "Projects" ? "active" : undefined}
           >
             <p>Projects</p>
           </Link>
           <Link
             to="/aboutme"
-            onClick={() => handleLink("AboutMe")}
             className={currentPage === "AboutMe" ? "active" : undefined}
           >
             <p>About Me</p>
           </Link>
           <Link
             to="/contact"
-            onClick={() => handleLink("Contact")}
             className={currentPage === "Contact" ? "active" : undefined}
           >
             <p>Contact</p>
@@ -80,7 +91,13 @@ export default function NavBar({ theme, toggleTheme }) {
 
         {/* Hamburger Icon - Hidden on large screens */}
         <div className="hamburger-icon-container">
-          <button onClick={toggleMenu} className="hamburger-button">
+          <button 
+            type="button"
+            onClick={toggleMenu} 
+            className="hamburger-button"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+          >
             {/* Hamburger SVG Icon */}
             <svg
               className="w-6 h-6"
@@ -106,7 +123,12 @@ export default function NavBar({ theme, toggleTheme }) {
       <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
         <div className="side-menu-header">
           <span className="side-menu-title">Menu</span>
-          <button onClick={toggleMenu} className="side-menu-close-button">
+          <button 
+            type="button"
+            onClick={toggleMenu} 
+            className="side-menu-close-button"
+            aria-label="Close navigation menu"
+          >
             {/* Close (X) SVG Icon */}
             <svg
               fill="none"
@@ -126,19 +148,19 @@ export default function NavBar({ theme, toggleTheme }) {
           </button>
         </div>
         <nav className="side-menu-nav">
-          <Link to="/" onClick={() => {toggleMenu(); handleLink("Home")}}>
+          <Link to="/" onClick={toggleMenu}>
             <p>Home</p>
           </Link>
-          <Link to="/resume" onClick={() => {toggleMenu(); handleLink("Resume")}}>
+          <Link to="/resume" onClick={toggleMenu}>
             <p>Resume</p>
           </Link>
-          <Link to="/projects" onClick={() => {toggleMenu(); handleLink("Projects")}}>
+          <Link to="/projects" onClick={toggleMenu}>
             <p>Projects</p>
           </Link>
-          <Link to="/aboutme" onClick={() => {toggleMenu(); handleLink("AboutMe")}}>
+          <Link to="/aboutme" onClick={toggleMenu}>
             <p>About Me</p>
           </Link>
-          <Link to="/contact" onClick={() => {toggleMenu(); handleLink("Contact")}}>
+          <Link to="/contact" onClick={toggleMenu}>
             <p>Contact</p>
           </Link>
         </nav>

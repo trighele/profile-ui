@@ -6,6 +6,7 @@ import ResumePage from "./components/pages/Resume/ResumePage.jsx";
 import ProjectsPage from "./components/pages/Projects/ProjectsPage.jsx";
 import AboutMePage from "./components/pages/AboutMe/AboutMePage.jsx";
 import ContactPage from "./components/pages/Contact/ContactPage.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 const ThemeContext = createContext();
 
@@ -61,9 +62,11 @@ function App() {
 
 function AppWrapper() {
   return (
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 

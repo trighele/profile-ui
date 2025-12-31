@@ -22,8 +22,18 @@ export default function ProjectItem({ project }) {
         <div className="project-links">
           {project.links.map((link, index) => (
             <div className="project-link" key={index}>
-              <a href={link.url} target="_blank">
-                <img src={link.icon} className="project-links-icon" />
+              <a 
+                href={link.url} 
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${link.linkTitle} for ${project.title}`}
+              >
+                <img 
+                  src={link.icon} 
+                  className="project-links-icon" 
+                  alt={`${link.linkTitle} icon`}
+                  loading="lazy"
+                />
                 {link.linkTitle}
               </a>
             </div>
