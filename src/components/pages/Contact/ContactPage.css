@@ -12,6 +12,16 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   overflow-x: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  #contact-page {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
 }
 
 .form-container{
@@ -35,6 +45,20 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .social-media-container {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 }
 
 .form-container:hover {
@@ -279,6 +303,9 @@
   border: 1.5px solid var(--resume-button-color);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: visible;
+  box-sizing: border-box;
+  width: auto;
+  max-width: 100%;
 }
 
 .social-media-container::before {
@@ -423,14 +450,25 @@ div[data-lastpass-icon-root] {
     align-items: center;
     gap: 40px;
     margin: 60px auto;
-    padding: 0 20px;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .form-container {
-    min-width: 100%;
-    max-width: 100%;
-    padding: 30px 25px;
-    width: 100%;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 30px 20px;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  .social-media-container {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
   }
   
   .form-container h1 {
@@ -481,13 +519,27 @@ div[data-lastpass-icon-root] {
 
 @media (max-width: 480px) {
   #contact-page {
-    padding: 0 15px;
+    padding: 0 10px;
     margin: 40px auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .form-container {
-    padding: 25px 20px;
+    min-width: 0 !important;
+    padding: 25px 15px;
     border-radius: 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  .social-media-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 40px 15px 25px 15px;
+    box-sizing: border-box;
   }
   
   .form-container h1 {

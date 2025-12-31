@@ -27,7 +27,7 @@ export default function ResumePage() {
         </TabButton>
         <TabButton id={2} activeTab={activeTab} onClick={handleClick}>
           Awards & <br />
-          Certification
+          Certs
         </TabButton>
         <TabButton id={3} activeTab={activeTab} onClick={handleClick}>
           Download

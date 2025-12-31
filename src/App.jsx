@@ -63,9 +63,9 @@ function App() {
 function AppWrapper() {
   return (
     <ErrorBoundary>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
     </ErrorBoundary>
   );
 }
